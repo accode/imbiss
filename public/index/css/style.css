@@ -206,6 +206,12 @@ blockquote {
 	height:5px;
 }
 
+.sidebar-divider1 {
+    background-image:url(../images/sidebar_divider.png);
+    width:400px;
+    height:5px;
+}
+
 .story-pages {
 	padding-top:70px !important;
 }
@@ -489,18 +495,18 @@ input:focus, textarea:focus {
 }
 
 #menu {
-	position:absolute;
-	top:72px;
-	left:5px;
-	width:880px;
-	height:82px;
+	position:relative;
+	top:0px;
+	left:0px;
+	width:auto;
+	height:20px;
 	z-index:3;
 }
 
 #menu-item {
-	width:960px;
+	width:auto;
 	margin:0px;
-	padding:11px 0px 0px 70px;
+	padding:11px 0px 0px 11px;
 	list-style:none;
 }
 
@@ -537,7 +543,9 @@ input:focus, textarea:focus {
 }
 
 #item-blog {
-	margin-right:280px !important;
+    top:0;
+    left: 0;
+	margin-right:250px !important;
 	padding-bottom:20px;
 	width:63px !important;
 }
@@ -582,9 +590,9 @@ input:focus, textarea:focus {
 .menu-item-text2 {
 	display:block;
 	font-family:'PT Sans Narrow', sans-serif;
-	font-size:0.7em;
+	font-size:1.0em;
 	line-height:9px;
-	padding:4px 0 0 1px;
+	padding:0px 0 0 0px;
 	opacity:0.8;
 	filter:alpha(opacity=80);
 	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
@@ -592,9 +600,9 @@ input:focus, textarea:focus {
 
 .menu-item-text3 {
 	font-family:'PT Sans Narrow', sans-serif;
-	font-size:0.9em;
+	font-size:1.3em;
 	font-weight:bold;
-	padding-left:1px;
+	padding-left:20px;
 	opacity:0.8;
 	filter:alpha(opacity=80);
 	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
@@ -620,16 +628,43 @@ input:focus, textarea:focus {
 }
 
 #drop-down-story, #drop-down-blog {
-	display:none;
+	display:block;
 	position:relative;
-	margin-left:-31px;
-	margin-top:17px;
-	border:1px solid #1f4179;
-	height:228px;
-	padding:30px 30px;
-	width:104px;
+	margin-left:-16px;
+	margin-top:10px;
+	border:1.5px solid #1f4179;
+	height:auto;
+	padding:35px 35px;
+	width:256px;
 	background-image:url(../images/header_bg.png);
 	z-index:1000000;
+}
+
+
+#drop-sb {
+    display:false;
+    position:relative;
+    margin-left:-10px;
+    margin-top:10px;
+    border:0px solid #1f4179;
+    height:60px;
+    padding:35px 35px;
+    width:256px;
+    /*background-image:url(../images/header_bg.png);*/
+    z-index:1000000;
+}
+
+#drop-sb-1 {
+    display:false;
+    position:relative;
+    margin-left:-10px;
+    margin-top:10px;
+    border:0px solid #1f4179;
+    height:60px;
+    padding:35px 35px;
+    width:512px;
+    /*background-image:url(../images/header_bg.png);*/
+    z-index:1000000;
 }
 
 #drop-down-blog {
@@ -728,10 +763,44 @@ input:focus, textarea:focus {
 	border-radius:5px;
 	float:right;
 	padding:30px 25px 60px 25px;
-	background-image:url('../images/sidebar_bg.png');
+	/*background-image:url('../images/sidebar_bg.png');*/
 	width:218px;
-	margin:10px 10px 0 0;
+	/*margin:10px 10px 0 0;*/
+    magin-right:auto;
 	border:1px solid #d2e3ff;
+}
+
+#content-right-large {
+
+    border-radius:5px;
+    height: auto;
+    float:right;
+    margin-top: 150px;
+    /*padding:30px 25px 60px 25px;*/
+
+    padding-right:0;
+    background-image:url('../images/sidebar_bg.png');
+    width:auto;
+    /*margin:10px 10px 0 0;*/
+    magin-right:auto;
+    border:1px solid #d2e3ff;
+}
+
+#content-right-large-1 {
+    position: relative;
+    border-radius:5px;
+    height: 225px;
+    float:right;
+
+    margin-right: -340px;
+    margin-top: 375px;
+    /*padding:30px 25px 60px 25px;*/
+
+    background-image:url('../images/th_texture.png');
+    width:480px;
+    /*margin:10px 10px 0 0;*/
+
+    border:1px solid #d2e3ff;
 }
 
 .story-header-wrap {
@@ -803,7 +872,7 @@ input:focus, textarea:focus {
 	font-style:italic;
 	line-height:16px;
 	margin-bottom:3px;
-} 
+}
 
 #page-change {
 	font-family:"Arial", sans-serif;
@@ -1014,8 +1083,8 @@ input:focus, textarea:focus {
 .menu-first-header {
 	border-bottom:none;
 	font-family:'PT Sans Narrow', sans-serif;
-	font-size:3.4em;
-	margin:20px 0 10px 0;
+	font-size:2.4em;
+	margin:0 auto;
 	color:#27599C;
 	text-shadow:1px 1px 0px #E0E0E0,2px 2px 0px #E0E0E0;
 }
@@ -1034,12 +1103,16 @@ input:focus, textarea:focus {
 }
 
 .food-wrap {
-	width:630px;
+    position: absolute;
+	width:auto;
 	font-family:"Arial",sans-serif;
 	clear:both;
-	height:150px;
-	margin-left:2px;
+	height:auto;
+    margin: 0 auto;
+    margin-left:-10px;
+    top:0;
 }
+
 
 .menu-divider {
 	height:5px;
