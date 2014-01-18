@@ -1626,11 +1626,20 @@ input:focus, textarea:focus {
 	border-top:3px solid #B94747;
 }
 
+#findus-container{
+    position:relative;
+    width:300px;
+    margin:0 auto;
+}
+
 #prefooter-content {
 	position:relative;
-	margin:0 auto;
-	width:957px;
-	padding-left:40px;
+	/*margin:0 auto;*/
+    width:310px;
+	height:600px;
+    padding-right:15px;
+	padding-left:50px;
+    padding-bottom:30px;
 }
 
 #prefooterwrap {
@@ -1668,14 +1677,15 @@ input:focus, textarea:focus {
 /* Find Us (First Prefooter Column) */
 
 #findus {
-	width:300px;
-	padding-top:41px;
+	width:320px;
+	padding-top:20px;
 	float:left;
-	margin-right:69px;
+	margin-right:60px;
 }
 
 #adress-wrap {
 	padding-top:2px;
+    width:350px;
 	margin-bottom:15px;
 	float:left;
 }
@@ -1705,8 +1715,8 @@ input:focus, textarea:focus {
 }
 
 #gmaps {
-	height:207px;
-	width:300px;
+	height:260px;
+	width:320px;
 }
 
 #gmaps img {
@@ -1716,9 +1726,9 @@ input:focus, textarea:focus {
 /* Restaurant Hours (Second Prefooter Column) */
 
 #hours {
-	float:left;
-	width:260px;
-	padding-top:41px;
+	float:right;
+	width:350px;
+	padding-top:100px;
 	margin-right:60px;
 }
 

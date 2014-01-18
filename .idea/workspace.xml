@@ -2,17 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="97101f43-4a02-4698-a6be-35a41f4e3781" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/imbiss.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/scopes/scope_settings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/index/menu.html" afterPath="$PROJECT_DIR$/public/index/menu.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/index/css/style.css" afterPath="$PROJECT_DIR$/public/index/css/style.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="imbiss.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Dummy.txt" changelist="97101f43-4a02-4698-a6be-35a41f4e3781" time="1390015607041" ignored="false" />
-    <file path="/menu.html" changelist="97101f43-4a02-4698-a6be-35a41f4e3781" time="1390020269556" ignored="false" />
+    <file path="/menu.html" changelist="97101f43-4a02-4698-a6be-35a41f4e3781" time="1390023720578" ignored="false" />
+    <file path="/style.css" changelist="97101f43-4a02-4698-a6be-35a41f4e3781" time="1390024332082" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,10 +39,28 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="menu.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="menu.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/index/menu.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="31" column="34" selection-start="1475" selection-end="1475" vertical-scroll-proportion="0.6811989">
+            <state line="32" column="23" selection-start="1499" selection-end="1499" vertical-scroll-proportion="-21.333334">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="style.css" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/public/index/css/style.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="1643" column="12" selection-start="24856" selection-end="24856" vertical-scroll-proportion="0.54946524">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="contact.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/ftmp_203_ob/contact.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="125" column="20" selection-start="6700" selection-end="6965" vertical-scroll-proportion="-4.1132073">
               <folding />
             </state>
           </provider>
@@ -71,6 +87,7 @@
         <option value="$USER_HOME$/ftmp_203_ob/menu.html" />
         <option value="$USER_HOME$/ftmp_203_ob/js/general.js" />
         <option value="$PROJECT_DIR$/public/index/menu.html" />
+        <option value="$PROJECT_DIR$/public/index/css/style.css" />
       </list>
     </option>
   </component>
@@ -519,16 +536,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/index/css/style.css">
+    <entry file="file://$USER_HOME$/ftmp_203_ob/contact.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-12.860465">
+        <state line="125" column="20" selection-start="6700" selection-end="6965" vertical-scroll-proportion="-4.1132073">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/index/menu.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="34" selection-start="1475" selection-end="1475" vertical-scroll-proportion="0.6811989">
+        <state line="32" column="23" selection-start="1499" selection-end="1499" vertical-scroll-proportion="-21.333334">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/index/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1643" column="12" selection-start="24856" selection-end="24856" vertical-scroll-proportion="0.54946524">
           <folding />
         </state>
       </provider>
