@@ -1635,8 +1635,9 @@ input:focus, textarea:focus {
 #prefooter-content {
 	position:relative;
 	/*margin:0 auto;*/
+    margin-right:auto;
     width:310px;
-	height:600px;
+	height:auto;
     padding-right:15px;
 	padding-left:50px;
     padding-bottom:30px;

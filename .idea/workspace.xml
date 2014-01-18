@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="97101f43-4a02-4698-a6be-35a41f4e3781" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/index/menu.html" afterPath="$PROJECT_DIR$/public/index/menu.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/index/css/style.css" afterPath="$PROJECT_DIR$/public/index/css/style.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -10,7 +9,7 @@
     <ignored path=".idea/workspace.xml" />
     <file path="/Dummy.txt" changelist="97101f43-4a02-4698-a6be-35a41f4e3781" time="1390015607041" ignored="false" />
     <file path="/menu.html" changelist="97101f43-4a02-4698-a6be-35a41f4e3781" time="1390023720578" ignored="false" />
-    <file path="/style.css" changelist="97101f43-4a02-4698-a6be-35a41f4e3781" time="1390024332082" ignored="false" />
+    <file path="/style.css" changelist="97101f43-4a02-4698-a6be-35a41f4e3781" time="1390024889352" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,7 +41,7 @@
       <file leaf-file-name="menu.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/index/menu.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="32" column="23" selection-start="1499" selection-end="1499" vertical-scroll-proportion="-21.333334">
+            <state line="32" column="23" selection-start="1499" selection-end="1499" vertical-scroll-proportion="-6.6666665">
               <folding />
             </state>
           </provider>
@@ -51,7 +50,7 @@
       <file leaf-file-name="style.css" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/index/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1643" column="12" selection-start="24856" selection-end="24856" vertical-scroll-proportion="0.54946524">
+            <state line="1637" column="22" selection-start="24775" selection-end="24775" vertical-scroll-proportion="0.4050802">
               <folding />
             </state>
           </provider>
@@ -545,14 +544,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/index/menu.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="23" selection-start="1499" selection-end="1499" vertical-scroll-proportion="-21.333334">
+        <state line="32" column="23" selection-start="1499" selection-end="1499" vertical-scroll-proportion="-6.6666665">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/index/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1643" column="12" selection-start="24856" selection-end="24856" vertical-scroll-proportion="0.54946524">
+        <state line="1637" column="22" selection-start="24775" selection-end="24775" vertical-scroll-proportion="0.4050802">
           <folding />
         </state>
       </provider>
