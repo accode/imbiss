@@ -2,9 +2,16 @@ require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
 
+
+
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(:default, Rails.env)
+
+#mongoid
+require "mongoid"
+Mongoid.load!("./config/mongoid.yml")
+
 
 module Imbiss
   class Application < Rails::Application
@@ -19,5 +26,10 @@ module Imbiss
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
+
+    config.mongoid.logger = Logger.new($stdout, :warn)
+
+    config.encoding = "utf-8"
+
   end
 end
