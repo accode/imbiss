@@ -46,3 +46,6 @@ end
 ruby '2.0.0'
 gem 'mongoid', git: 'https://github.com/mongoid/mongoid.git'
 gem 'memcache-client'
+gem "redis", "~> 3.0.1"
+gem "hiredis", "~> 0.4.5"
+gem "em-synchrony"
