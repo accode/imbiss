@@ -49,3 +49,4 @@ gem 'memcache-client'
 gem "redis", "~> 3.0.1"
 gem "hiredis", "~> 0.4.5"
 gem "em-synchrony"
+gem "paperclip", "~> 3.0"
