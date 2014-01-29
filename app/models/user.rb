@@ -4,8 +4,5 @@ class User
   include Mongoid::Timestamps
   include Mongoid::Paperclip
 
-  has_mongoid_attached_file :photo, :style => {
-       :thumb => "100x100#",
-       :small => "150x150>"
-  }
+  has_mongoid_attached_file :photo
 end
