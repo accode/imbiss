@@ -51,3 +51,6 @@ gem "hiredis", "~> 0.4.5"
 gem "em-synchrony"
 gem "paperclip", "~> 3.0"
 gem 'mongoid-paperclip', :require => "mongoid_paperclip"
+
+#machine learning
+gem 'tomz-liblinear-ruby-swig'
