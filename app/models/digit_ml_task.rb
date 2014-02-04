@@ -104,6 +104,65 @@ class DigitMLTask
 
 end
 
+module LG_KNN
+  class<<self
+    attr_accessor :sps,:lbs;
+    attr_accessor :h;
+
+    def dis(a,b)
+      s = 0.0
+      a.zip(b).each { |c|
+        s+= (c[0]-c[1])**2.0;
+      }
+      s.to_f**0.5
+    end
+
+    def train_lg(samples,labels)
+      @lbs = labels.clone;
+      @sps = samples.clone;
+
+      @h = {}
+      m = samples[0].size;
+      m.times { |by_which_feature|
+        @h[by_which_feature] = Hash.new
+        samples.each.with_index{ |sp, id|
+          @h[by_which_feature][ sp[by_which_feature] ] ||= {}
+          @h[by_which_feature][ sp[by_which_feature] ] << id
+        }
+      }
+      nil
+    end
+
+    def pa(hash , md , limit , buffer);
+      res = []
+      while limit > 0 && (0..255)===md
+        arr = hash[md].to_a.sample(limit);
+        sz = arr.size
+        limit -= sz
+        res += arr;
+        md += buffer;
+      end
+      res;
+    end
+
+    def predict(s)
+      m = s.size;
+      best = 0;
+      m.times { |by_which_feature|
+        arr = @h[by_which_feature];
+        md = s[by_which_feature];
+        candidate = pa( arr , md , arr[md].to_a.size + 300 , - 1) + pa( arr , md , arr[md].to_a.size + 300 , + 1);
+        candidate.each { |id|
+          d = dis(s, @sps[id]);
+          if d < dis(s, @sps[best])
+            best = id;
+          end
+        }
+      }
+      @lbs[best];
+    end
+  end
+end
 
 def fxx
   samples, labels = DigitMLTask.parse_train_data(DigitMLTask.train_file);
@@ -115,4 +174,11 @@ def train_knn
   samples, labels = DigitMLTask.parse_train_data_knn(DigitMLTask.train_file);
   knn = KNN.new( samples )
   f=lambda{|s| knn.nearest_neighbours(s)[0][0]}
+end
+
+def train_knn_lg
+  samples, labels = DigitMLTask.parse_train_data_knn(DigitMLTask.train_file);
+  knn = LG_KNN.train_lg( samples , labels)
+  f=lambda{|s| knn.predict(s)}
+  p labels.zip( samples.collect{|s| f.call(s)} ).select{|w| w[0]==w[1]}.size.to_f / samples.size
 end
