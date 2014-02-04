@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="97101f43-4a02-4698-a6be-35a41f4e3781" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile.lock" afterPath="$PROJECT_DIR$/Gemfile.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile" afterPath="$PROJECT_DIR$/Gemfile" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/digit_ml_task.rb" afterPath="$PROJECT_DIR$/app/models/digit_ml_task.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/imbiss.iml" afterPath="$PROJECT_DIR$/.idea/imbiss.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="97101f43-4a02-4698-a6be-35a41f4e3781" name="Default" comment="" />
     <ignored path="imbiss.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Dummy.txt" changelist="97101f43-4a02-4698-a6be-35a41f4e3781" time="1391473916418" ignored="false" />
@@ -44,7 +38,7 @@
       <file leaf-file-name="digit_ml_task.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/models/digit_ml_task.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="115" column="34" selection-start="2341" selection-end="2341" vertical-scroll-proportion="0.8261803">
+            <state line="112" column="16" selection-start="2222" selection-end="2222" vertical-scroll-proportion="0.76824033">
               <folding />
             </state>
           </provider>
@@ -594,7 +588,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/digit_ml_task.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="115" column="34" selection-start="2341" selection-end="2341" vertical-scroll-proportion="0.8261803">
+        <state line="112" column="16" selection-start="2222" selection-end="2222" vertical-scroll-proportion="0.76824033">
           <folding />
         </state>
       </provider>

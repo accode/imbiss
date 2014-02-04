@@ -55,3 +55,6 @@ gem 'mongoid-paperclip', :require => "mongoid_paperclip"
 #machine learning
 gem 'tomz-liblinear-ruby-swig'
 gem 'knn'
+gem 'execjs'
+
+gem 'therubyracer'
