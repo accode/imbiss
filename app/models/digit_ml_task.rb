@@ -138,15 +138,10 @@ def train_knn(ratio = 1.0)
 
   knn = KNN.new( samples );
 
-  def vote_for( arr , labels)
-    v = arr.collect{|c| labels[c]};
-    v.group_by{|w| w}.to_a.sort_by{|w| -w[1].size}[0][0]
-  end
-
-  f=lambda{|s| vote_for(knn.nearest_neighbours(s,11).collect{|w| w[0]}, labels) }
+  f=lambda{|s| labels[ knn.nearest_neighbours(s)[0][0] ] }
   t0 = Time.now;
 
-  n=2000
+  n=1000
   p lbs.take(n).zip( sps.take(n).collect{|s| f.call(s)} ).select{|w| w[0]==w[1]}.size.to_f / n;
   p (Time.now - t0) / n
 

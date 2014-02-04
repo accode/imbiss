@@ -58,3 +58,4 @@ gem 'knn'
 gem 'execjs'
 
 gem 'therubyracer'
+gem 'ruby-fann'
