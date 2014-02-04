@@ -73,21 +73,21 @@ class DigitMLTask
   def self.parse_train_data_knn( ios )
     labels = []
     samples = []
-
+    t = 120
     ios.each{ |rec|
       arr = rec.split(",").to_a.map(&:to_f);
       labels << arr[0].to_i
-      samples << arr[1..-1]
+      samples << arr[1..-1].collect{|s| s>=t ? 1 : 0}
     }
     [samples, labels]
   end
 
   def self.parse_test_data_knn( ios )
     samples = []
-
+    t = 120
     ios.each{ |rec|
       arr = rec.split(",").to_a.map(&:to_f);
-      samples << arr
+      samples << arr.collect{|s| s>=t ? 1 : 0}
     }
     samples
   end
@@ -104,66 +104,6 @@ class DigitMLTask
 
 end
 
-module LG_KNN
-  class<<self
-    attr_accessor :sps,:lbs;
-    attr_accessor :h;
-
-    def dis(a,b)
-      s = 0.0
-      a.zip(b).each { |c|
-        s+= (c[0]-c[1])**2.0;
-      }
-      s.to_f**0.5
-    end
-
-    def train_lg(samples,labels)
-      @lbs = labels.clone;
-      @sps = samples.clone;
-
-      @h = {}
-      m = samples[0].size;
-      m.times { |by_which_feature|
-        @h[by_which_feature] = Hash.new
-        samples.each.with_index{ |sp, id|
-          @h[by_which_feature][ sp[by_which_feature] ] ||= {}
-          @h[by_which_feature][ sp[by_which_feature] ] << id
-        }
-      }
-      nil
-    end
-
-    def pa(hash , md , limit , buffer);
-      res = []
-      while limit > 0 && (0..255)===md
-        arr = hash[md].to_a.sample(limit);
-        sz = arr.size
-        limit -= sz
-        res += arr;
-        md += buffer;
-      end
-      res;
-    end
-
-    def predict(s)
-      m = s.size;
-      best = 0;
-      m.times { |by_which_feature|
-        arr = @h[by_which_feature];
-        md = s[by_which_feature];
-        candidate = pa( arr , md , arr[md].to_a.size + 300 , - 1) + pa( arr , md , arr[md].to_a.size + 300 , + 1);
-        candidate.each { |id|
-          d = dis(s, @sps[id]);
-          if d < dis(s, @sps[best])
-            best = id;
-          end
-        }
-      }
-      @lbs[best];
-    end
-  end
-end
-
 def fxx
   samples, labels = DigitMLTask.parse_train_data(DigitMLTask.train_file);
   task = DigitMLTask.new({})
@@ -172,13 +112,29 @@ end
 
 def train_knn
   samples, labels = DigitMLTask.parse_train_data_knn(DigitMLTask.train_file);
-  knn = KNN.new( samples )
-  f=lambda{|s| knn.nearest_neighbours(s)[0][0]}
+  pick_up = samples.zip(labels).sample(2000);
+  samples = []
+  labels = []
+  pick_up.each { |w|
+    samples << w[0];
+    labels << w[1];
+  };
+
+  knn = KNN.new( samples );
+  f=lambda{|s| labels[knn.nearest_neighbours(s)[0][0]]}
+  t0 = Time.now;
+  n=2000
+  p labels.take(n).zip( samples.take(n).collect{|s| f.call(s)} ).select{|w| w[0]==w[1]}.size.to_f / samples.take(n).size
+  p (Time.now - t0) / n
+  p labels.zip( samples.collect{|s| f.call(s)} ).select{|w| w[0]==w[1]}.size.to_f / samples.size
+  ml = DigitMLTask.parse_test_data_knn(DigitMLTask.test_file).collect { |s|
+    f.call(s)
+  };
+  File.open("data.csv","w"){ |out|
+    out.printf "ImageId,Label\n"
+    ml.each.with_index { |predict, id|
+      out.printf "#{id + 1 },#{predict}\n"
+    }
+  } and 41
 end
 
-def train_knn_lg
-  samples, labels = DigitMLTask.parse_train_data_knn(DigitMLTask.train_file);
-  knn = LG_KNN.train_lg( samples , labels)
-  f=lambda{|s| knn.predict(s)}
-  p labels.zip( samples.collect{|s| f.call(s)} ).select{|w| w[0]==w[1]}.size.to_f / samples.size
-end
