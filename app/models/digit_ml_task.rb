@@ -73,21 +73,19 @@ class DigitMLTask
   def self.parse_train_data_knn( ios )
     labels = []
     samples = []
-    t = 120
     ios.each{ |rec|
       arr = rec.split(",").to_a.map(&:to_f);
       labels << arr[0].to_i
-      samples << arr[1..-1].collect{|s| s>=t ? 1 : 0}
+      samples << arr[1..-1]
     }
     [samples, labels]
   end
 
   def self.parse_test_data_knn( ios )
     samples = []
-    t = 120
     ios.each{ |rec|
       arr = rec.split(",").to_a.map(&:to_f);
-      samples << arr.collect{|s| s>=t ? 1 : 0}
+      samples << arr
     }
     samples
   end
@@ -110,26 +108,38 @@ def fxx
   task.train( samples, labels );
 end
 
+def wash( sample , split = 4)
+
+  sum = [0] * (28/split) ** 2;
+
+  28.times { |i|
+    28.times { |j|
+      x = i / (28 / split);
+      y = j / (28 / split);
+      sum[x * (28 / split) + y ] += sample[i * 28 + j];
+    }
+  }
+  sum.collect{|s| s.to_f / (split**2)}
+end
+
 def train_knn
-  samples, labels = DigitMLTask.parse_train_data_knn(DigitMLTask.train_file);
-  pick_up = samples.zip(labels).sample(2000);
-  samples = []
-  labels = []
-  pick_up.each { |w|
-    samples << w[0];
-    labels << w[1];
-  };
+  sps, labels = DigitMLTask.parse_train_data_knn(DigitMLTask.train_file);
+
+  samples = sps.collect{|s| wash(s)};
 
   knn = KNN.new( samples );
   f=lambda{|s| labels[knn.nearest_neighbours(s)[0][0]]}
   t0 = Time.now;
   n=2000
-  p labels.take(n).zip( samples.take(n).collect{|s| f.call(s)} ).select{|w| w[0]==w[1]}.size.to_f / samples.take(n).size
+  p labels.take(n).zip( samples.take(n).collect{|s| f.call(wash(s))} ).select{|w| w[0]==w[1]}.size.to_f / samples.take(n).size
   p (Time.now - t0) / n
-  p labels.zip( samples.collect{|s| f.call(s)} ).select{|w| w[0]==w[1]}.size.to_f / samples.size
-  ml = DigitMLTask.parse_test_data_knn(DigitMLTask.test_file).collect { |s|
+
+  test = DigitMLTask.parse_test_data_knn(DigitMLTask.test_file).collect{|s| wash(s)};
+
+  ml = test.collect { |s|
     f.call(s)
   };
+
   File.open("data.csv","w"){ |out|
     out.printf "ImageId,Label\n"
     ml.each.with_index { |predict, id|
