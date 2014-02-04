@@ -110,28 +110,44 @@ end
 
 def wash( sample , split = 4)
 
-  sum = [0] * (28/split) ** 2;
+  sum = [0] * ((28/split) ** 2);
 
   28.times { |i|
     28.times { |j|
       x = i / (28 / split);
       y = j / (28 / split);
-      sum[x * (28 / split) + y ] += sample[i * 28 + j];
+      sum[x * (28 / split) + y ] += sample[i * 28 + j]||0.0;
     }
   }
   sum.collect{|s| s.to_f / (split**2)}
 end
 
-def train_knn
-  sps, labels = DigitMLTask.parse_train_data_knn(DigitMLTask.train_file);
+def train_knn(ratio = 1.0)
+  sps, lbs = DigitMLTask.parse_train_data_knn(DigitMLTask.train_file);
 
-  samples = sps.collect{|s| wash(s)};
+  sps = sps.collect{|w| wash(w) };
+
+  samples = []
+  labels = []
+
+  sps.zip(lbs).each { |w|
+    next if rand>ratio
+    samples << w[0];
+    labels << w[1];
+  }
 
   knn = KNN.new( samples );
-  f=lambda{|s| labels[knn.nearest_neighbours(s)[0][0]]}
+
+  def vote_for( arr , labels)
+    v = arr.collect{|c| labels[c]};
+    v.group_by{|w| w}.to_a.sort_by{|w| -w[1].size}[0][0]
+  end
+
+  f=lambda{|s| vote_for(knn.nearest_neighbours(s,11).collect{|w| w[0]}, labels) }
   t0 = Time.now;
+
   n=2000
-  p labels.take(n).zip( samples.take(n).collect{|s| f.call(wash(s))} ).select{|w| w[0]==w[1]}.size.to_f / samples.take(n).size
+  p lbs.take(n).zip( sps.take(n).collect{|s| f.call(s)} ).select{|w| w[0]==w[1]}.size.to_f / n;
   p (Time.now - t0) / n
 
   test = DigitMLTask.parse_test_data_knn(DigitMLTask.test_file).collect{|s| wash(s)};
