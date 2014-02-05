@@ -15,7 +15,7 @@ end
 def nn_performance(fann , f, samples, labels)
   correct = 0.0
   sz = 1000
-  samples.zip(labels).sample(sz).{ |w|
+  samples.zip(labels).sample(sz).each{ |w|
     input = w[0];
     output = w[1];
     predict = f.call(fann.run( input ))
@@ -36,7 +36,7 @@ def train_nn(ratio = 1.0)
     next if rand>ratio
     samples << w[0];
     labels << w[1];
-  }
+  };
 
   test = DigitMLTask.parse_test_data_knn(DigitMLTask.test_file).collect{|s| wash(s)};
 

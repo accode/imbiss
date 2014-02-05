@@ -108,18 +108,18 @@ def fxx
   task.train( samples, labels );
 end
 
-def wash( sample , split = 4)
+def wash( sample , block_len = 4)
 
-  sum = [0] * ((28/split) ** 2);
+  sum = [0] * ((28/block_len) ** 2);
 
   28.times { |i|
     28.times { |j|
-      x = i / (28 / split);
-      y = j / (28 / split);
-      sum[x * (28 / split) + y ] += sample[i * 28 + j]||0.0;
+      x = i / (block_len);
+      y = j / (block_len);
+      sum[x * (28 / block_len) + y ] += sample[i * 28 + j]||0.0;
     }
   }
-  sum.collect{|s| s.to_f / (split**2)}
+  sum.collect{|s| s.to_f / (block_len**2)}
 end
 
 def train_knn(ratio = 1.0)
